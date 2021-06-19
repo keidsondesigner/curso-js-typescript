@@ -3,7 +3,7 @@ const pessoa = {
     sobrenome: 'Otávio',
     idade: 35,
 }
-console.log(pessoa.idade);
+console.log(pessoa.nome);
 
 
 
