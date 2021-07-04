@@ -1,5 +1,5 @@
-function Produto (nome, preco, estoque) {
-  this.nome = nome;
+function Produto (name, preco, estoque) {
+  this.nome = name;
   this.preco = preco;
   
   let estoquePrivado = estoque;
