@@ -23,8 +23,3 @@ function Pessoa(nome, sobrenome) {
 const p1 = new Pessoa("Luiz", "Miranda");
 const p2 = new Pessoa("Maria", "Miranda");
 console.log(p1);
-
-//Class
-class Person {
-  
-}
