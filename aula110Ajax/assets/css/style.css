@@ -1,0 +1,66 @@
+:root {
+  --primary-color: #2a9ec2;
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+  background: var(--primary-color);
+  font-family: "Sen", sans-serif;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+}
+
+button {
+  font-family: "Sen", sans-serif;
+  font-size: 1.125rem;
+}
+
+a {
+  padding: 0 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition-duration: 0.5s;
+}
+
+a:hover {
+  font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+.container {
+  margin-top: 2.5rem;
+}
+
+.container-content {
+  max-width: 37.5rem;
+  margin: 0 auto;
+  padding: 3rem 3rem;
+  background: #fff;
+  border-radius: 0.5rem;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  padding: 2.25rem 0;
+}

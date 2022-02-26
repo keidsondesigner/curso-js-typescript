@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Sen:wght@400;700&display=swap" rel="stylesheet">
+    <title>Curso JS com TypeScript</title>
+</head>
+<body>
+    <section class="container">
+      <article class="container-content">
+        <h1>Cadastre-se</h1>
+        <div>
+          <p>
+            É necessário se cadastrar, para efetuar seu login. Caso seja cadastrado <a href="#">efetuar login</a>.
+          </p>
+        </div>
+        <form id="form" action="/" method="post">
+            <label for="name">Nome</label>
+            <input class="nome validar" id="name" type="text">
+
+            <label for="sobreNome">Sobrenome</label>
+            <input class="sobreNome validar" id="sobreNome" type="text">
+
+            <label for="cpf">CPF</label>
+            <input class="cpf validar" id="cpf" type="text">
+
+            <label for="senha">Senha</label>
+            <input class="senha validar" id="senha" type="password">
+
+            <label for="confirmarSenha">Confirmar Senha</label>
+            <input class="confirmarSenha validar" id="confirmarSenha" type="password">
+
+            <button type="submit">Enviar</button>
+        </form>
+      </article>
+    </section>
+    <script src="./assets/js/validaCPF.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
