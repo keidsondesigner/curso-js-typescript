@@ -2,6 +2,9 @@
   "name": "aula115Babel",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "babel": "babel ./main.js -o ./bundle.js --presets=@babel/env -w"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
