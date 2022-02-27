@@ -2,6 +2,9 @@
   "name": "aula116Webpack",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "gera": "webpack -w"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
