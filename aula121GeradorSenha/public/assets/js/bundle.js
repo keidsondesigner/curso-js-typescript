@@ -2,6 +2,94 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/formGeraSenha.js":
+/*!**************************************!*\
+  !*** ./src/modules/formGeraSenha.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _geradores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./geradores */ "./src/modules/geradores.js");
+
+var senhaGerada = document.querySelector('.senha-gerada');
+var qtdCaracters = document.querySelector('.qtd-caracters');
+var chkMaiusculas = document.querySelector('.chk-maiusculas');
+var chkMinusculas = document.querySelector('.chk-minusculas');
+var chkNumeros = document.querySelector('.chk-numeros');
+var chkSimbolos = document.querySelector('.chk-simbolos');
+var gerarSenha = document.querySelector('.gerar-senha');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  gerarSenha.addEventListener('click', function () {
+    senhaGerada.innerHTML = gera();
+  });
+});
+
+function gera() {
+  var senha = (0,_geradores__WEBPACK_IMPORTED_MODULE_0__["default"])(qtdCaracters.value, chkMaiusculas.checked, chkMinusculas.checked, chkNumeros.checked, chkSimbolos.checked);
+  return senha || "Erro! Selecione uma opção<br> e uma quantidade.";
+}
+
+/***/ }),
+
+/***/ "./src/modules/geradores.js":
+/*!**********************************!*\
+  !*** ./src/modules/geradores.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ geraSenha)
+/* harmony export */ });
+var rand = function rand(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+var geraMaiuscula = function geraMaiuscula() {
+  return String.fromCharCode(rand(65, 91));
+};
+
+var geraMinuscula = function geraMinuscula() {
+  return String.fromCharCode(rand(97, 123));
+};
+
+var geraNumero = function geraNumero() {
+  return String.fromCharCode(rand(48, 58));
+};
+
+var simbolos = ',.;~^[]{}!@#$%*()_+=-<>:?';
+
+var geraSimbolo = function geraSimbolo() {
+  return simbolos[rand(0, simbolos.length)];
+}; //export default para usar essa função em outro módulo;
+
+
+function geraSenha(qtd, maiusculas, minusculas, numeros, simbolos) {
+  var senhaArray = []; // convertendo ' qtd ' em strig para number
+
+  qtd = Number(qtd);
+
+  for (var i = 0; i < qtd; i++) {
+    // avaliação de curto circuito, se for 'maiuscula' verdadeiro vai executar e passa pro próximo;
+    maiusculas && senhaArray.push(geraMaiuscula());
+    minusculas && senhaArray.push(geraMinuscula());
+    numeros && senhaArray.push(geraNumero());
+    simbolos && senhaArray.push(geraSimbolo());
+  } //console.log(senhaArray)
+  // removendo os separdo '' com o método join()
+  //console.log(senhaArray.join(''))
+  // separando por quantitade com o método slice()
+  //console.log(senhaArray.join('').slice(0, qtd))
+
+
+  return senhaArray.join('').slice(0, qtd);
+}
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css":
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css ***!
@@ -22,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&family=Roboto:wght@400;500;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --primary-color: rgb(42, 158, 194);\n  --primary-font: \"Raleway\", sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n  outline: 0;\n}\n\nbody {\n  padding: 0;\n  margin: 0 auto;\n  background: var(--primary-color);\n  font-family: var(--primary-font);\n}\n\n.container {\n  max-width: 440px;\n  margin: 80px auto;\n  padding: 20px;\n  background: #fff;\n  border-radius: 8px;\n}\n\nform input,\nform label {\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n\nform input {\n  font-size: 18px;\n  height: 50px;\n  padding: 0 10px;\n\n  border: 1px solid rgb(216, 216, 216);\n  border-radius: 8px;\n}\n\nform input:focus {\n  border: 1px solid #2a9ec2;\n}\n\nform button {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  margin: 0 auto;\n  width: 40%;\n\n  border: none;\n  background: var(--primary-color);\n  color: #fff;\n  font-size: 18px;\n  font-weight: bold;\n  height: 50px;\n  border-radius: 8px;\n  cursor: pointer;\n\n  margin-top: 20px;\n\n  transition-duration: 0.5s;\n}\n\nform button:hover {\n  background: #1e748f;\n}\n", "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAEA;EACE,kCAAkC;EAClC,qCAAqC;AACvC;;AAEA;EACE,sBAAsB;EACtB,UAAU;AACZ;;AAEA;EACE,UAAU;EACV,cAAc;EACd,gCAAgC;EAChC,gCAAgC;AAClC;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,aAAa;EACb,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;;EAEE,aAAa;EACb,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;;EAEf,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;;EAEvB,cAAc;EACd,UAAU;;EAEV,YAAY;EACZ,gCAAgC;EAChC,WAAW;EACX,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,kBAAkB;EAClB,eAAe;;EAEf,gBAAgB;;EAEhB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;AACrB","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&family=Roboto:wght@400;500;700&display=swap\");\n\n:root {\n  --primary-color: rgb(42, 158, 194);\n  --primary-font: \"Raleway\", sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n  outline: 0;\n}\n\nbody {\n  padding: 0;\n  margin: 0 auto;\n  background: var(--primary-color);\n  font-family: var(--primary-font);\n}\n\n.container {\n  max-width: 440px;\n  margin: 80px auto;\n  padding: 20px;\n  background: #fff;\n  border-radius: 8px;\n}\n\nform input,\nform label {\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n\nform input {\n  font-size: 18px;\n  height: 50px;\n  padding: 0 10px;\n\n  border: 1px solid rgb(216, 216, 216);\n  border-radius: 8px;\n}\n\nform input:focus {\n  border: 1px solid #2a9ec2;\n}\n\nform button {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  margin: 0 auto;\n  width: 40%;\n\n  border: none;\n  background: var(--primary-color);\n  color: #fff;\n  font-size: 18px;\n  font-weight: bold;\n  height: 50px;\n  border-radius: 8px;\n  cursor: pointer;\n\n  margin-top: 20px;\n\n  transition-duration: 0.5s;\n}\n\nform button:hover {\n  background: #1e748f;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n\t--primary-color: rgb(42, 158, 194);\n\t--primary-font: \"Raleway\", sans-serif;\n}\n\n* {\n\tbox-sizing: border-box;\n\toutline: 0;\n}\n\nbody {\n\tpadding: 0;\n\tmargin: 0 auto;\n\tbackground: var(--primary-color);\n\tfont-family: var(--primary-font);\n}\n\n.container {\n\tmax-width: 370px;\n\tmargin: 80px auto;\n\tpadding: 20px;\n\tbackground: #fff;\n\tborder-radius: 8px;\n}\n\ndiv input:focus {\n\tborder: 1px solid #2a9ec2;\n}\n\ndiv button {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\tmargin: 0 auto;\n\twidth: 40%;\n\n\tborder: none;\n\tbackground: var(--primary-color);\n\tcolor: #fff;\n\tfont-size: 18px;\n\tfont-weight: bold;\n\theight: 50px;\n\tborder-radius: 8px;\n\tcursor: pointer;\n\n\ttransition-duration: 0.5s;\n}\n\ndiv button:hover {\n\tbackground: #1e748f;\n}\n\n.senha-gerada {\n\tfont-size: 20px;\n\tcolor: var(--primary-color);\n\tfont-weight: 600;\n}\n\ninput[type=\"checkbox\"] {\n\twidth: 15px;\n\theight: 15px;\n}\n\ninput[type=\"checkbox\"]:nth-child(1):checked {\n    filter: hue-rotate(240deg);\n}\n\ninput[type=\"checkbox\"]:nth-child(2):checked {\n    filter: hue-rotate(285deg);\n}\n\n\ninput[type=\"checkbox\"]:nth-child(3):checked {\n    filter: hue-rotate(300deg);\n}\n\ninput[type=\"checkbox\"]:nth-child(4):checked {\n    filter: hue-rotate(320deg);\n}\n\ninput.qtd-caracters {\n\tdisplay: flex;\n\twidth: 100%;\n\tfont-size: 18px;\n\theight: 50px;\n\tpadding: 0 10px;\n\tmargin-top: 15px;\n\n\tborder: 1px solid rgb(216, 216, 216);\n\tborder-radius: 8px;\n}\n\n.elementos {\n\tpadding: 20px 0px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    align-items: center;\n}\n", "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAEA;CACC,kCAAkC;CAClC,qCAAqC;AACtC;;AAEA;CACC,sBAAsB;CACtB,UAAU;AACX;;AAEA;CACC,UAAU;CACV,cAAc;CACd,gCAAgC;CAChC,gCAAgC;AACjC;;AAEA;CACC,gBAAgB;CAChB,iBAAiB;CACjB,aAAa;CACb,gBAAgB;CAChB,kBAAkB;AACnB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;;CAEvB,cAAc;CACd,UAAU;;CAEV,YAAY;CACZ,gCAAgC;CAChC,WAAW;CACX,eAAe;CACf,iBAAiB;CACjB,YAAY;CACZ,kBAAkB;CAClB,eAAe;;CAEf,yBAAyB;AAC1B;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,eAAe;CACf,2BAA2B;CAC3B,gBAAgB;AACjB;;AAEA;CACC,WAAW;CACX,YAAY;AACb;;AAEA;IACI,0BAA0B;AAC9B;;AAEA;IACI,0BAA0B;AAC9B;;;AAGA;IACI,0BAA0B;AAC9B;;AAEA;IACI,0BAA0B;AAC9B;;AAEA;CACC,aAAa;CACb,WAAW;CACX,eAAe;CACf,YAAY;CACZ,eAAe;CACf,gBAAgB;;CAEhB,oCAAoC;CACpC,kBAAkB;AACnB;;AAEA;CACC,iBAAiB;IACd,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,mBAAmB;AACvB","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&family=Roboto:wght@400;500;700&display=swap\");\n\n:root {\n\t--primary-color: rgb(42, 158, 194);\n\t--primary-font: \"Raleway\", sans-serif;\n}\n\n* {\n\tbox-sizing: border-box;\n\toutline: 0;\n}\n\nbody {\n\tpadding: 0;\n\tmargin: 0 auto;\n\tbackground: var(--primary-color);\n\tfont-family: var(--primary-font);\n}\n\n.container {\n\tmax-width: 370px;\n\tmargin: 80px auto;\n\tpadding: 20px;\n\tbackground: #fff;\n\tborder-radius: 8px;\n}\n\ndiv input:focus {\n\tborder: 1px solid #2a9ec2;\n}\n\ndiv button {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\tmargin: 0 auto;\n\twidth: 40%;\n\n\tborder: none;\n\tbackground: var(--primary-color);\n\tcolor: #fff;\n\tfont-size: 18px;\n\tfont-weight: bold;\n\theight: 50px;\n\tborder-radius: 8px;\n\tcursor: pointer;\n\n\ttransition-duration: 0.5s;\n}\n\ndiv button:hover {\n\tbackground: #1e748f;\n}\n\n.senha-gerada {\n\tfont-size: 20px;\n\tcolor: var(--primary-color);\n\tfont-weight: 600;\n}\n\ninput[type=\"checkbox\"] {\n\twidth: 15px;\n\theight: 15px;\n}\n\ninput[type=\"checkbox\"]:nth-child(1):checked {\n    filter: hue-rotate(240deg);\n}\n\ninput[type=\"checkbox\"]:nth-child(2):checked {\n    filter: hue-rotate(285deg);\n}\n\n\ninput[type=\"checkbox\"]:nth-child(3):checked {\n    filter: hue-rotate(300deg);\n}\n\ninput[type=\"checkbox\"]:nth-child(4):checked {\n    filter: hue-rotate(320deg);\n}\n\ninput.qtd-caracters {\n\tdisplay: flex;\n\twidth: 100%;\n\tfont-size: 18px;\n\theight: 50px;\n\tpadding: 0 10px;\n\tmargin-top: 15px;\n\n\tborder: 1px solid rgb(216, 216, 216);\n\tborder-radius: 8px;\n}\n\n.elementos {\n\tpadding: 20px 0px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    align-items: center;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -598,6 +686,11 @@ module.exports = styleTagTransform;
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -606,9 +699,11 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _modules_formGeraSenha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/formGeraSenha */ "./src/modules/formGeraSenha.js");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
 
-console.log("Olá mundo!");
+
+(0,_modules_formGeraSenha__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()

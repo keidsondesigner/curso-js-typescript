@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Curso JS com TypeScript</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <section class="container">
-      <h1>Calculadora de IMC</h1>
-      <div class="senha-gerada"></div>
-      <div>
-        Quantidade de caracteres
-        <input type="number" />
-      </div>
-      <div>
-        Adicionar maiúsculas
-        <input type="checkbox" class="chk-maiusculas" checked />
-      </div>
-      <div>
-        Adicionar minúsculas
-        <input type="checkbox" class="chk-minusculas" />
-      </div>
-      <div>
-        Adicionar números
-        <input type="checkbox" class="chk-numeros" />
-      </div>
-      <div>
-        Adicionar simbolos
-        <input type="checkbox" class="chk-simbolos" />
-      </div>
-      <button>Gerar senha</button>
+        <h1>Gerador de senhas</h1>
+        <div>
+            <div class="senha-gerada">Insira um quantidade</div>
+        <div>
+            <input class="qtd-caracters" value="20" type="number" min="1" max="50"/>
+        </div>
+        <div class="elementos">
+            <div>
+                <label for="">Adicionar maiúsculas</label>
+                <input type="checkbox" class="chk-maiusculas" id="" checked />
+            </div>
+            <div>
+                <label for="">Adicionar minúsculas</label>
+                <input type="checkbox" class="chk-minusculas" checked />
+            </div>
+            <div>
+                <label for="">Adicionar números</label>
+                <input type="checkbox" class="chk-numeros" checked />
+            </div>
+            <div>
+                <label for="">Adicionar simbolos</label>
+                <input type="checkbox" class="chk-simbolos" checked />
+            </div>
+        </div>
+        <button class="gerar-senha">Gerar senha</button>
+        </div>
     </section>
     <script src="./assets/js/bundle.js"></script>
-  </body>
+</body>
 </html>
