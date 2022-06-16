@@ -1,3 +1,11 @@
+const HomeModel = require('../models/HomeModel');
+
+HomeModel.create({
+  titulo: 'Meu título de teste',
+  descricao: 'minha descrição aqui.'
+
+}).then(dados => console.log(dados).catch(err => console.log(err)));
+
 exports.pageHome = (req, res) => {
 	res.render('index');
 };
