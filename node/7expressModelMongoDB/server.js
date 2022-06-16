@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 // ou emitir o error
 mongoose.connect(process.env.CONNECTIONSTRING, {useNewURLParser: true, useUnifiedTopology: true})
 	.then(() => {
-		console.log('- Conectei na base de dados -');
 		app.emit('pronto');
 	}).catch(error => console.log(error));
 
