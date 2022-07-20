@@ -1,42 +1,42 @@
 <%- include('./includes/head.ejs'); -%>
 <%- include('./includes/nav.ejs'); -%>
 <section class="container-md m-auto pt-5">
-  <div class="row justify-content-center pt-5">
+  <div class="row justify-content-center pt-5 gap-5">
     <div class="col-11 col-sm-11 col-md-11 col-lg-9 my-5">
-      <h1 class="text-center fw-semibold">Login</h1>
+      <h1 class="display-5 fw-semibold text-center">📓 Agenda Aí</h1>
       <%- include('./includes/messages.ejs'); -%>
     </div>
-    <div class="row">
+    <div class="gap-5 gap-lg-0 row row-cols-1 row-cols-lg-2">
       <div class="col">
         <h4 class="text-center fw-semibold">Faça seu Cadastro</h4>
         <p class="text-center">Não tem conta? preencha o formulário abaixo.</p>
-        <form action="/login/register" method="POST">
+        <form class="pt-5" action="/login/register" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput">Email</label>
           </div>
-          <div class="mb-3">
-            <label class="form-label">Senha</label>
-            <input type="password" class="form-control" name="password" minlength="6" required>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Senha</label>
           </div>
-          <button type="submit" class="btn btn-primary">Criar conta</button>
+          <button type="submit" class="btn btn-outline-primary col-12">Criar conta</button>
         </form>
       </div>
       <div class="col">
         <h4 class="text-center fw-semibold">Entrar no sistema</h4>
         <p class="text-center">Já tem uma conta? faça seu login.</p>
-        <form action="/login/login" method="POST">
+        <form class="pt-5" action="/login/login" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput">Email</label>
           </div>
-          <div class="mb-3">
-            <label class="form-label">Senha</label>
-            <input type="password" class="form-control" name="password" minlength="6" required>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Senha</label>
           </div>
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="submit" class="btn btn-outline-primary col-12">Entar</button>
         </form>
       </div>
     </div>

@@ -33,7 +33,6 @@ class Login {
   }
 
   valida(){
-    console.log('valida')
     this.cleanUp();
     // Validação
 
@@ -42,9 +41,9 @@ class Login {
     if(!validator.isEmail(this.body.email)){
       this.errors.push('Email inválido.');
     }
-    // A senha precisa ter entre 3 e 50 caracters
-    if(this.body.password.length < 3 || this.body.password.length > 50){
-      this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
+    // A senha precisa ter entre 6 e 50 caracters
+    if(this.body.password.length < 6 || this.body.password.length > 50){
+      this.errors.push('🥺 A senha precisa ter entre 6 e 50 caracteres.');
     }
   }
   cleanUp(){

@@ -13,14 +13,14 @@ exports.register = async (req, res) => {
     if(login.errors.length > 0) {
       req.flash('errors', login.errors);
       req.session.save(() => {
-        return res.redirect('back');
+        return res.redirect('/login');
       });
       return;
     }
 
-    req.flash('success', 'Seu usuário foi criado com sucesso!');
+    req.flash('success', '🥳 Seu usuário foi criado com sucesso!');
     req.session.save(() => {
-      return res.redirect('back');
+      return res.redirect('/login');
     });
   } catch (err) {
     console.error(err);
