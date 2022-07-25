@@ -9,6 +9,7 @@ routes.get('/', homeController.index);
 
 //Rotas de Login
 routes.get('/login', loginController.index);
+// Rota do form quando for Error ou Success
 routes.post('/login/register', loginController.register);
 
 module.exports = routes;
