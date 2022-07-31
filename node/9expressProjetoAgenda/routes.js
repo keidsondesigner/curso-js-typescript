@@ -11,5 +11,7 @@ routes.get('/', homeController.index);
 routes.get('/login', loginController.index);
 // Rota do form quando for Error ou Success
 routes.post('/login/register', loginController.register);
+routes.post('/login/login', loginController.login);
+routes.get('/login/logout', loginController.logout);
 
 module.exports = routes;

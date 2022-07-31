@@ -32,11 +32,28 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js", "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"],
-        styleSrc: ["'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css'],
-        imgSrc: ["'self'", 'data:'],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js',
+          'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js'
+        ],
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css',
+          'https://fonts.googleapis.com'
+        ],
+        imgSrc: [
+          "'self'",
+          'data:'
+        ],
         connectSrc: ["'self'"],
-        fontSrc: ["'self'"],
+        fontSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          'https://fonts.gstatic.com'
+        ],
         objectSrc: ["'self'"],
         mediaSrc: ["'self'"],
         frameSrc: ["'self'"]
