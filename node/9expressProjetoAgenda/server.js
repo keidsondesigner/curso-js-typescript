@@ -1,5 +1,7 @@
 // importando .env e nossa CONNECTIONSTRING
 require('dotenv').config();
+
+// importando express e mongoose
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
